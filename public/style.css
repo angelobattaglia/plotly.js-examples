@@ -1,0 +1,117 @@
+body {
+  font-size: 12pt;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Verdana, Helvetica, sans-serif;
+}
+
+header {
+  margin: 5px;
+  padding: 5px;
+  border-top: 1px solid orange;
+  border-bottom: 1px solid orange;
+  background-color: rgb(255, 230, 150);
+  text-align: center;
+}
+
+img {
+  text-align: center;
+  width: 45%;
+  margin-left: 25%;
+  display: block;
+}
+
+code {
+  font-weight: 700;
+  background-color: rgb(240, 240, 240);
+  padding: 1px;
+  border-radius: 1px;
+}
+
+article {
+  border-bottom: solid 3px black;
+  margin-bottom: 2em;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+section {
+  padding: 20px;
+  margin-bottom: 1em;
+  vertical-align: top;
+
+  border-bottom: dashed 1px gray;
+  border-bottom-right-radius: 15px;
+  border-top: dashed 1px gray;
+  border-top-left-radius: 15px;
+}
+
+.hint {
+  font-style: italic;
+  color: #808080;
+  font-size: 70%;
+  text-align: center;
+  font-weight: 300;
+}
+
+div.answer:hover .hint {
+  font-style: italic;
+  font-weight: 700;
+  color: orange;
+  text-align: center;
+  word-spacing: 0.5em;
+}
+
+.answer {
+  background-color: rgb(250, 250, 250);
+  border: dotted orange 1px;
+  font-family: sans-serif;
+  font-size: 120%;
+  padding: 5px 15px 5px 15px;
+}
+
+div.question {
+  padding-top: 15px;
+  vertical-align: top;
+  display: inline-block;
+  width: 38%;
+}
+
+div.options {
+  vertical-align: top;
+  display: inline-block;
+  width: 58%;
+}
+
+.options li {
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+.options li:before {
+  content: "\26aa\2000";
+  vertical-align: middle;
+}
+
+.options li.selected:before {
+  content: "\26ab\2000";
+}
+.options li:hover:before {
+  content: "\26ab\2000";
+}
+
+.popup {
+  width: 70%;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background-color: white;
+  border: dashed 1pt gray;
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px;
+  z-index: 100;
+}
