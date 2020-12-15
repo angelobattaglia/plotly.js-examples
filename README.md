@@ -2,7 +2,7 @@ Watch these two videos:
 https://www.youtube.com/watch?v=5IG4UmULyoA
 https://www.youtube.com/watch?v=eCuddDie2rI
 
-All you need to know:
+# All you need to know:
 
 Everything starts in the public/index.html file. So you have to think that
 your javascript code will be considered as located there from the methods you call
@@ -16,7 +16,7 @@ npm init -y
 first: npm init -y
 npm install plotly
 
-# Building the file:
+# Building the file with webpack:
 
 npm run build
 

@@ -2,15 +2,36 @@
 <html lang="it">
 <head>
 	<title>Data Visualization tools</title>
-	<link href="./public/syle.css" rel="stylesheet"/>
 	<!--<script src="https://oop.polito.it/js/plotly-latest.min.js"></script>-->
 	<!--<script src="https://oop.polito.it/js/jquery-3.2.1.min.js"></script>-->
     <!--<script src="https://oop.polito.it/js/VIQsupport.js"></script>-->
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <style>
+    @media (prefers-color-scheme: dark){
+		body {color:#fff;background:#000}
+		a:link {color:#9cf}
+		a:hover, a:visited:hover {color:#cef}
+		a:visited {color:#c9f}
+	}
+	body{
+		margin:1em auto;
+		max-width:50em;
+		padding:0 .90em;
+		font:1.2em/1.62 sans-serif;
+	}
+	h1,h2,h3 {
+		line-height:1.2;
+	}
+	@media print{
+		body{
+			max-width:none
+		}
+    }
+    </style>
 </head>
 <body>
 <header>
-<p>Data Visualization</p>
+<big><p>Data Visualization</p></big> 
 </header>
 <article>
 
@@ -20,8 +41,8 @@
 
 <div class="answer" id="redesign">
 
-		<h2>Soluzione</h2>
-
+		<h2>Simple double graph</h2>
+        <html src="./visual1.html"></html>
 		<div id="grafico1"></div>
 		<div id="grafico2"></div>
 		<script src="../dist/main.js"></script>
