@@ -31,23 +31,122 @@
 </head>
 <body>
 <header>
-<big><p>Data Visualization</p></big> 
+<p style="color: #000111; font-weight: bold">Data Visualization with Plotly.js made simple</p>
 </header>
 <article>
 
 <section>
 <h2>Design</h2>
-    <p>Riprogettare la visualizzazione in modo da risolvere i problemi evidenziati nell'analisi.</p>
+    <p>
+        Strongly suggest to go check the github code and see what the project structure is. 
+        This webpage is built using webpack, npm and Plotly.js. I'm using the default
+        configuration of webpack, just to make it even easier. 
+        Simply run: <code style="color:#3677a9"> npm run build </code> when you're in the project repository's master branch.
+        The repository "./src" contains all of the directories representing each graph, in order of appearance.
+    </p>
 
 <div class="answer" id="redesign">
 
 		<h2>Simple double graph</h2>
-        <html src="./visual1.html"></html>
+<div>
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">import</span> <span style="color: #d0d0d0">Plotly</span> <span style="color: #d0d0d0">from</span> <span style="color: #ed9d13">&#39;plotly.js-dist&#39;</span><span style="color: #d0d0d0">;</span>
+<span style="color: #6ab825; font-weight: bold">function</span> <span style="color: #d0d0d0">esameVIQ()</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #6ab825; font-weight: bold">let</span> <span style="color: #d0d0d0">cfg</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">{</span> <span style="color: #999999; font-style: italic">// plot configuration</span>
+        <span style="color: #d0d0d0">displayModeBar:</span> <span style="color: #6ab825; font-weight: bold">false</span> <span style="color: #999999; font-style: italic">// avoid showing the modal bar</span>
+    <span style="color: #d0d0d0">};</span>
+    <span style="color: #999999; font-style: italic">// &quot;../src/dati.csv&quot; è dove viene effettuata la richiesta GET a partire dall&#39;index.html</span>
+    <span style="color: #d0d0d0">Plotly.d3.csv(</span><span style="color: #ed9d13">&quot;../src/visual1/dati.csv&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #6ab825; font-weight: bold">function</span> <span style="color: #d0d0d0">(error,</span> <span style="color: #d0d0d0">data)</span> <span style="color: #d0d0d0">{</span>
+        <span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">(error)</span> <span style="color: #d0d0d0">{</span>
+            <span style="color: #d0d0d0">alert(</span><span style="color: #ed9d13">&quot;Cannot load data: &quot;</span> <span style="color: #d0d0d0">+</span> <span style="color: #d0d0d0">error.toString());</span>
+            <span style="color: #6ab825; font-weight: bold">return</span><span style="color: #d0d0d0">;</span>
+    <span style="color: #d0d0d0">}</span>
+
+        <span style="color: #999999; font-style: italic">//load dei dati dal file dati.csv</span>
+        <span style="color: #6ab825; font-weight: bold">let</span> <span style="color: #d0d0d0">percentages</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">[];</span>
+        <span style="color: #6ab825; font-weight: bold">let</span> <span style="color: #d0d0d0">quantitative</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">[];</span>
+        <span style="color: #6ab825; font-weight: bold">let</span> <span style="color: #d0d0d0">year</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">[];</span>
+        <span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">let</span> <span style="color: #d0d0d0">i</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">;</span> <span style="color: #d0d0d0">i</span> <span style="color: #d0d0d0">&lt;</span> <span style="color: #d0d0d0">data.length;</span> <span style="color: #d0d0d0">++i)</span> <span style="color: #d0d0d0">{</span>
+            <span style="color: #d0d0d0">year.push(data[i].year);</span>
+            <span style="color: #d0d0d0">percentages.push(data[i].percentages);</span>
+            <span style="color: #d0d0d0">quantitative.push(data[i].quantitative);</span>
+        <span style="color: #d0d0d0">}</span>
+        <span style="color: #999999; font-style: italic">//Qui vi sono le tracce:</span>
+        <span style="color: #6ab825; font-weight: bold">let</span> <span style="color: #d0d0d0">trace1</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">[</span>
+            <span style="color: #999999; font-style: italic">//prima traccia</span>
+            <span style="color: #d0d0d0">{</span>
+                <span style="color: #d0d0d0">type:</span> <span style="color: #ed9d13">&quot;bar&quot;</span><span style="color: #d0d0d0">,</span>
+                <span style="color: #d0d0d0">x:</span> <span style="color: #d0d0d0">year,</span>
+                <span style="color: #d0d0d0">y:</span> <span style="color: #d0d0d0">percentages</span>
+            <span style="color: #d0d0d0">}</span>
+        <span style="color: #d0d0d0">];</span>
+        <span style="color: #6ab825; font-weight: bold">let</span> <span style="color: #d0d0d0">trace2</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">[</span>
+            <span style="color: #d0d0d0">{</span>
+                 <span style="color: #d0d0d0">type:</span> <span style="color: #ed9d13">&quot;scatter&quot;</span><span style="color: #d0d0d0">,</span>
+                 <span style="color: #d0d0d0">yaxis:</span> <span style="color: #ed9d13">&quot;y2&quot;</span><span style="color: #d0d0d0">,</span>
+                 <span style="color: #d0d0d0">x:</span> <span style="color: #d0d0d0">year,</span>
+                 <span style="color: #d0d0d0">y:</span> <span style="color: #d0d0d0">quantitative,</span>
+                 <span style="color: #d0d0d0">line:</span>
+                     <span style="color: #d0d0d0">{</span>
+                         <span style="color: #d0d0d0">color:</span> <span style="color: #ed9d13">&quot;red&quot;</span><span style="color: #d0d0d0">,</span>
+                         <span style="color: #d0d0d0">width:</span> <span style="color: #ed9d13">&quot;s&quot;</span><span style="color: #d0d0d0">,</span>
+                         <span style="color: #d0d0d0">shape:</span> <span style="color: #ed9d13">&quot;spline&quot;</span>
+                     <span style="color: #d0d0d0">},</span>
+                 <span style="color: #d0d0d0">marker:</span>
+                     <span style="color: #d0d0d0">{</span>
+                         <span style="color: #d0d0d0">color:</span> <span style="color: #ed9d13">&quot;orange&quot;</span><span style="color: #d0d0d0">,</span>
+                         <span style="color: #d0d0d0">symbol:</span> <span style="color: #ed9d13">&quot;diamond&quot;</span><span style="color: #d0d0d0">,</span>
+                         <span style="color: #d0d0d0">size:</span> <span style="color: #3677a9">10</span>
+                     <span style="color: #d0d0d0">}</span>
+             <span style="color: #d0d0d0">}</span>
+        <span style="color: #d0d0d0">];</span>
+
+        <span style="color: #999999; font-style: italic">//Qui i layout</span>
+        <span style="color: #6ab825; font-weight: bold">let</span> <span style="color: #d0d0d0">layout1</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">{</span>
+            <span style="color: #d0d0d0">xaxis:</span> <span style="color: #d0d0d0">{</span>
+                <span style="color: #d0d0d0">title:</span> <span style="color: #ed9d13">&quot;Year of the crysis&quot;</span><span style="color: #d0d0d0">,</span>
+                <span style="color: #d0d0d0">anchor:</span> <span style="color: #ed9d13">&quot;y&quot;</span>
+            <span style="color: #d0d0d0">},</span>
+            <span style="color: #d0d0d0">yaxis:</span> <span style="color: #d0d0d0">{</span>
+                <span style="color: #d0d0d0">title:</span> <span style="color: #ed9d13">&quot;Proportion of unemployment&quot;</span><span style="color: #d0d0d0">,</span>
+                <span style="color: #d0d0d0">tickformat:</span> <span style="color: #ed9d13">&quot;.1%&quot;</span><span style="color: #d0d0d0">,</span>
+                <span style="color: #d0d0d0">domain:</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">0.49</span><span style="color: #d0d0d0">]</span>
+            <span style="color: #d0d0d0">},</span>
+            <span style="color: #d0d0d0">margin:</span> <span style="color: #d0d0d0">{t:</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">b:</span> <span style="color: #3677a9">35</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">r:</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">l:</span> <span style="color: #3677a9">60</span><span style="color: #d0d0d0">},</span>
+            <span style="color: #d0d0d0">showlegend:</span> <span style="color: #6ab825; font-weight: bold">false</span>
+        <span style="color: #d0d0d0">};</span>
+        <span style="color: #6ab825; font-weight: bold">let</span> <span style="color: #d0d0d0">layout2={</span>
+            <span style="color: #d0d0d0">xaxis:</span> <span style="color: #d0d0d0">{</span>
+
+                <span style="color: #d0d0d0">title:</span> <span style="color: #ed9d13">&quot;Year of the crysis&quot;</span><span style="color: #d0d0d0">,</span>
+                <span style="color: #d0d0d0">anchor:</span> <span style="color: #ed9d13">&quot;y&quot;</span>
+            <span style="color: #d0d0d0">},</span>
+
+            <span style="color: #d0d0d0">yaxis2:</span> <span style="color: #d0d0d0">{</span>
+                <span style="color: #d0d0d0">title:</span> <span style="color: #ed9d13">&quot;Unemployment quantitatively&quot;</span><span style="color: #d0d0d0">,</span>
+                <span style="color: #d0d0d0">domain:</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">0.51</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span>
+            <span style="color: #d0d0d0">},</span>
+            <span style="color: #d0d0d0">margin:</span> <span style="color: #d0d0d0">{t:</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">b:</span> <span style="color: #3677a9">35</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">r:</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">l:</span> <span style="color: #3677a9">60</span><span style="color: #d0d0d0">},</span>
+            <span style="color: #d0d0d0">showlegend:</span> <span style="color: #6ab825; font-weight: bold">false</span>
+        <span style="color: #d0d0d0">};</span>
+        <span style="color: #999999; font-style: italic">//Utilizzo il metodo plot di plotly:</span>
+        <span style="color: #d0d0d0">Plotly.plot(</span><span style="color: #ed9d13">&quot;grafico1&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">trace1,</span> <span style="color: #d0d0d0">layout1,</span> <span style="color: #d0d0d0">cfg);</span>
+        <span style="color: #d0d0d0">Plotly.plot(</span><span style="color: #ed9d13">&quot;grafico2&quot;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">trace2,</span> <span style="color: #d0d0d0">layout2,</span> <span style="color: #d0d0d0">cfg);</span>
+    <span style="color: #d0d0d0">});</span>
+<span style="color: #d0d0d0">}</span>
+
+<span style="color: #24909d">window</span><span style="color: #d0d0d0">.onload</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">esameVIQ();</span>
+</pre></div>
+</div>
 		<div id="grafico1"></div>
 		<div id="grafico2"></div>
 		<script src="../dist/main.js"></script>
 
 </div>
+</section>
+
+
+<section>
+
 </section>
 
 </article>
