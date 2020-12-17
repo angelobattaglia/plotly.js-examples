@@ -27,11 +27,9 @@ npm run build
     |->html
     |->css
 
-AJAX import it in the html file (https://www.youtube.com/watch?v=eCuddDie2rI)
 jQuery import it in the html file
 npm learn how to use package.json and npm commands to manage projects and dependencies
 Plotly.js
 webpack learn how to build the file for production and few other things
 
 # Go on to highlight code here: http://hilite.me/
-
