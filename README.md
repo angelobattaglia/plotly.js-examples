@@ -1,8 +1,3 @@
-# .gitignore
-
-I didn't add a .gitignore file because I choose to run it with github pages on live. This is for
-enable demonstrations. If you need to contribute.
-
 # Watch these two videos:
 
 https://www.youtube.com/watch?v=5IG4UmULyoA
