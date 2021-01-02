@@ -14,8 +14,7 @@ npm init -y
 
 # Project structure:
 
-first: npm init -y
-npm install plotly
+npm install
 
 # Building the file with webpack:
 
